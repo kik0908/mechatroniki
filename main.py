@@ -128,4 +128,5 @@ if __name__ == "__main__":
     input_file, output_file = argv[1], argv[2] if len(argv) == 3 else "./out.xml"
     dh_data, limits, damping, t = split_data(read_den_har(input_file))
     robot = generate_urdf(zip(limits, dh_data, damping, t))
+    et.indent(robot)
     et.ElementTree(robot).write(output_file)
